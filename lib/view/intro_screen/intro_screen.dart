@@ -20,8 +20,8 @@ class _IntroScreenState extends State<IntroScreen> {
       globalBackgroundColor: bgColIntro,
       pages: [
         _buildAnimatedPage(
-          'Crypto Trading - Made Easy',
-          'Trade smarter, not harder.',
+          'Ordering Food - Made Easy',
+          'Craving comfort? Order it home.',
           "assets/utilities/intro_img1.png",
           _animationKeys[0],
         ),
@@ -32,14 +32,14 @@ class _IntroScreenState extends State<IntroScreen> {
           _animationKeys[1],
         ),
         _buildAnimatedPage(
-          '24/7 Customer Support',
-          'Your support, our priority, 24/7.',
+          'Delivered in 30 min',
+          'Fast food, faster delivery. Enjoy your meal in no time.',
           "assets/utilities/intro_img3.png",
           _animationKeys[2],
         ),
         _buildAnimatedPage(
-          'Always, Up to Date',
-          'Up-to-date, every day.',
+          '24/7 Customer Support',
+          'Your support, our priority, 24/7.',
           "assets/utilities/intro_img4.png",
           _animationKeys[3],
         ),
