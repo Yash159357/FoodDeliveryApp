@@ -247,7 +247,8 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                                 width: double.infinity,
                                 child: ElevatedButton(
                                   onPressed: () {
-                                    return _showMenuDialog(context, widget.restaurant);
+                                    return _showMenuDialog(
+                                        context, widget.restaurant);
                                   },
                                   style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.yellow,

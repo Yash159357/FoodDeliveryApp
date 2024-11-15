@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "128172328215",
+    "project_id": "quick-eats-3c386",
+    "storage_bucket": "quick-eats-3c386.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:128172328215:android:5a6749d5410f1113356352",
+        "android_client_info": {
+          "package_name": "com.example.food_app_project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAciAhZlhXuUw7skdn3ig_FCltzU9zBWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

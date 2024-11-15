@@ -38,6 +38,10 @@ dependencies:
   get: ^4.6.5
   introduction_screen: ^3.1.14
   flutter_rating_bar: ^4.0.1
+  firebase_auth: ^4.16.0
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.14.0
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

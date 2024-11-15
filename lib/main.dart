@@ -1,6 +1,10 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:food_app_project/firebase_options.dart';
+import 'package:food_app_project/services/firebase_setup.dart';
 import 'package:food_app_project/view/auth/auth.dart';
 import 'package:food_app_project/view/home/home_screen.dart';
+import 'package:food_app_project/view/home/order_failure_screen.dart';
 import 'package:food_app_project/view/home/order_success_screen.dart';
 import 'package:food_app_project/view/home/restaurant_screen.dart';
 import 'package:food_app_project/view/intro_screen/intro_screen.dart';
@@ -23,10 +27,15 @@ var routes = [
       restaurant: Get.arguments,
     ),
   ),
-  GetPage(name: "/success", page: () => const OrderSuccessScreen())
+  GetPage(name: "/success", page: () => const OrderSuccessScreen()),
+  GetPage(name: "/failure", page: () => const OrderFailureScreen()),
 ];
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
@@ -42,8 +51,21 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: "/splash",
+      // initialRoute: "/splash",
       getPages: routes,
+      home: StreamBuilder(
+        stream: firebaseAuth.authStateChanges(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const SplashScreen(msg: 3);
+          }
+          if (snapshot.hasData) {
+            return const SplashScreen(msg: 2);
+          } else {
+            return const SplashScreen(msg: 1);
+          }
+        },
+      ),
     );
   }
 }

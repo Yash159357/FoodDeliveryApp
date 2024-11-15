@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:food_app_project/model/restaurant.dart';
+import 'package:food_app_project/services/firebase_setup.dart';
 import 'package:get/get.dart';
 import 'dart:math';
 
@@ -368,8 +371,23 @@ class _MenuScreenState extends State<MenuScreen> {
                       const SizedBox(width: 10),
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () {
-                            Get.offAllNamed("/success");
+                          onPressed: () async {
+                            try {
+                              final user = firebaseAuth.currentUser;
+                              await firebaseFirestore
+                                  .collection('users')
+                                  .doc(user!.uid)
+                                  .collection('orders')
+                                  .add({
+                                    "order_id" : widget.restaurant.dishes[_selectedDish].id,
+                                    "order_time" : DateTime.now(),
+                                  });
+                              Get.offAllNamed("/success");
+                            } catch (e) {
+                              print("Error : $e");
+                              Get.offAllNamed("/failure");
+                            }
+                            
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.yellow,
