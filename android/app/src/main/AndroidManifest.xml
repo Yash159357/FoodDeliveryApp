@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- INTERNET PERMISSION -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
-        android:label="food_app_project"
+        android:label="QuickEats (Project)"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
